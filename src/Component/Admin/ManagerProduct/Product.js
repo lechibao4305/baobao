@@ -4,10 +4,10 @@ class Product extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            items: [],cartItems:[]
+            items: [], cartItems: []
         }
     }
-    
+
     render() {
         return (
             <React.Fragment>
