@@ -4,7 +4,7 @@ class Product extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            items: [], cartItems: []
+            items: [],
         }
     }
 
