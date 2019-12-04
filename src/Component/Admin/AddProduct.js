@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 import { Row, Form, Col, Button, Container } from 'react-bootstrap';
 import Item from './Item';
-import { Link,Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import axios from "axios";
 class AddProduct extends Component {
     constructor(props) {
         super(props);
         this.onChangeTen = this.onChangeTen.bind(this);
-            this.onChangeHang=this.onChangeHang.bind(this);
-            this.onChangeGia=this.onChangeGia.bind(this);
-            this.onChangeTrangThai=this.onChangeTrangThai.bind(this);
-            this.onChangeMoTa=this.onChangeMoTa.bind(this);
-            this.onChangeHinh=this.onChangeHinh.bind(this);
-            this.onSubmit=this.onSubmit.bind(this);
+        this.onChangeHang = this.onChangeHang.bind(this);
+        this.onChangeGia = this.onChangeGia.bind(this);
+        this.onChangeTrangThai = this.onChangeTrangThai.bind(this);
+        this.onChangeMoTa = this.onChangeMoTa.bind(this);
+        this.onChangeHinh = this.onChangeHinh.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
         this.state = {
             ten: "",
             hinh: "",
@@ -20,11 +20,8 @@ class AddProduct extends Component {
             trangthai: 0,
             gia: 0,
             hang: "",
-            // items: Items,
-            // index: '',
-            // act: 0,
         }
-            
+
     }
 
     onChangeTen(e) {
@@ -69,7 +66,6 @@ class AddProduct extends Component {
         };
         axios.post('http://localhost:4000/items/add', item)
             .then(res => console.log(res.data));
-
         this.setState({
             ten: "",
             hinh: "",
@@ -78,39 +74,9 @@ class AddProduct extends Component {
             gia: 0,
             hang: "",
         })
+        this.props.history.push('/admin');
         console.log(item)
     }
-    
-    // componentDidMount() {
-    //     this.refs.ten.focus();
-    // }
-    // fRemove = (index) => {
-    //     let items = this.state.items;
-    //     items.splice(index, 1);
-    //     this.setState({
-    //         items: items
-    //     });
-
-    //     this.refs.myForm.reset();
-    //     this.refs.ten.focus();
-    // }
-    // fEdit = (index) => {
-    //     let item = this.state.items[index];
-    //     this.refs.ten.value = item.ten;
-    //     this.refs.hinh.value = item.hinh;
-    //     this.refs.gia.value = item.gia;
-    //     this.refs.mota.value = item.mota;
-    //     this.refs.trangthai.value = item.trangthai;
-    //     this.refs.hang.value = item.hang;
-
-    //     this.setState({
-    //         act: 1,
-    //         index: index
-    //     });
-
-    //     this.refs.ten.focus();
-    // }
-    
     render() {
         return (
             <Container>

@@ -2,12 +2,15 @@ import React, { Component } from 'react';
 import Header from '../../User/Header';
 import Footer from '../../User/Footer';
 import CartItem from './CartItem';
+
+
 class Cart extends Component {
     constructor(props) {
         super(props)
         this.state = {
             items: [],
         }
+
     }
     render() {
         return (
@@ -26,7 +29,7 @@ class Cart extends Component {
                             <div className="wrap-table-shopping-cart bgwhite">
                                 <table className="table-shopping-cart">
                                     <tbody><tr className="table-head">
-                                        <th className="column-1" />
+                                        <th className="column-1" >Image</th>
                                         <th className="column-2">Product</th>
                                         <th className="column-3">Price</th>
                                         <th className="column-4 p-l-70">Quantity</th>

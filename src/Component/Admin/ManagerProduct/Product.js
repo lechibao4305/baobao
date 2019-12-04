@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Util from './Util';
+import { Link } from 'react-router-dom'
+import axios from 'axios'
 class Product extends Component {
     constructor(props) {
         super(props)
@@ -7,7 +9,9 @@ class Product extends Component {
             items: [],
         }
     }
-
+    onSubmit() {
+        axios.post(" http://localhost:4000/paypal/pay")
+    }
     render() {
         return (
             <React.Fragment>
@@ -15,7 +19,7 @@ class Product extends Component {
                     {/* Block2 */}
                     <div className="block2">
                         <div className="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
-                            <img src="images/item-02.jpg" alt="IMG-PRODUCT" />
+                            <img src="images/dh-1.jpg" alt="IMG-PRODUCT" />
                             <div className="block2-overlay trans-0-4">
                                 <a href="#" className="block2-btn-addwishlist hov-pointer trans-0-4">
                                     <i className="icon-wishlist icon_heart_alt" aria-hidden="true" />
@@ -24,8 +28,11 @@ class Product extends Component {
                                 <div className="block2-btn-addcart w-size1 trans-0-4">
                                     {/* Button */}
                                     {/* onClick={(e) => this.props.handleAddToCart(e, product)} */}
-                                    <button className="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
+                                    <Link to={"/add-to-cart/" + this.props.item._id}>  <button className="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
                                         Add to Cart
+                </button></Link>
+                                    <button className="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" onClick={this.onSubmit}>
+                                        Buy
                 </button>
                                 </div>
                             </div>
@@ -40,7 +47,7 @@ class Product extends Component {
                         </div>
                     </div>
                 </div>
-            </React.Fragment>
+            </React.Fragment >
         );
     }
 }

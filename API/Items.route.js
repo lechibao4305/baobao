@@ -1,8 +1,8 @@
-const express = require('express');
-const itemRoutes = express.Router();
-
+var express = require('express');
+var itemRoutes = express.Router();
 // Require Business model in our routes module
-let Item = require('./Item.model');
+var Item = require('./Item.model');
+var Cart = require('./Cart.model')
 
 // Defined store route
 itemRoutes.route('/add').post(function (req, res) {
@@ -68,5 +68,17 @@ itemRoutes.route('/delete/:id').get(function (req, res) {
         else res.json('Successfully removed');
     });
 });
-
+itemRoutes.get('/add-to-cart/:id', function (req, res, next) {
+    let id = req.params.id;
+    let cart = new Cart(req.session.cart ? req.session.cart : {});
+    Item.findById(id, function (err, item) {
+        if (err) {
+            return res.redirect('/ListProduct')
+        }
+        cart.add(item, item.id);
+        req.session.cart = cart;
+        console.log(req.session.cart);
+        res.redirect('/ListProduct')
+    });
+})
 module.exports = itemRoutes;

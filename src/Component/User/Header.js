@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 class Header extends Component {
-
+    constructor(props) {
+        super(props)
+        this.state = {
+            items: [],
+        }
+    }
     render() {
         return (
             <div>
@@ -42,7 +47,7 @@ class Header extends Component {
                                 <nav className="menu">
                                     <ul className="main_menu">
                                         <li>
-                                            <a href="index.html">Home</a>
+                                            <Link to="/" >Home</Link>
                                             <ul className="sub_menu">
                                                 <li><a href="index.html">Homepage V1</a></li>
                                                 <li><a href="home-02.html">Homepage V2</a></li>
@@ -50,31 +55,16 @@ class Header extends Component {
                                             </ul>
                                         </li>
                                         <li>
-                                            <a href="product.html">Shop</a>
-                                        </li>
-                                        <li className="sale-noti">
-                                            <a href="product.html">Sale</a>
-                                        </li>
-                                        <li>
-                                            <a href="cart.html">Features</a>
-                                        </li>
-                                        <li>
-                                            <a href="blog.html">Blog</a>
-                                        </li>
-                                        <li>
-                                            <a href="about.html">About</a>
-                                        </li>
-                                        <li>
-                                            <a href="contact.html">Contact</a>
+                                            <Link to="/ListProduct" >Shop</Link>
                                         </li>
                                     </ul>
                                 </nav>
                             </div>
                             {/* Header Icon */}
                             <div className="header-icons">
-                                <a href="#" className="header-wrapicon1 dis-block">
+                                <Link to="/Logout"> <a href="#" className="header-wrapicon1 dis-block">
                                     <img src="images/icons/icon-header-01.png" className="header-icon1" alt="ICON" />
-                                </a>
+                                </a></Link>
                                 <span className="linedivide1" />
                                 <div className="header-wrapicon2">
                                     <img id="cart-info" src="images/icons/icon-header-02.png" className="header-icon1 js-show-header-dropdown" alt="ICON" />
