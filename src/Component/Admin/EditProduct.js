@@ -22,7 +22,7 @@ class EditProduct extends Component {
   }
   componentDidMount() {
     axios
-      .get("http://localhost:4000/items/edit/" + this.props.match.params.id)
+      .get("http://localhost:3000/items/edit/" + this.props.match.params.id)
       .then(response => {
         this.setState({
           ten: response.data.ten,
@@ -80,7 +80,7 @@ class EditProduct extends Component {
     };
     axios
       .post(
-        "http://localhost:4000/items/update/" + this.props.match.params.id,
+        "http://localhost:3000/items/update/" + this.props.match.params.id,
         obj
       )
       .then(res => console.log(res.data));

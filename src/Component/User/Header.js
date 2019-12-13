@@ -87,7 +87,7 @@ class Header extends Component {
                     className="header-icon1 js-show-header-dropdown"
                     alt="ICON"
                   />
-                  <span className="header-icons-noti">0</span>
+                  <span className="header-icons-noti">1</span>
                   {/* Header cart noti */}
                   <div className="header-cart header-dropdown">
                     <ul className="header-cart-wrapitem">

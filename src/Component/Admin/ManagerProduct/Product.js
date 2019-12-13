@@ -6,9 +6,16 @@ class Product extends Component {
   constructor(props) {
     super(props);
     this.state = {};
+    this.addtocart = this.addtocart.bind(this);
   }
   onSubmit() {
-    axios.post(" http://localhost:4000/paypal/pay");
+    axios.post("http://localhost:4000/paypal/pay");
+  }
+  addtocart() {
+    axios
+      .get("http://localhost:3000/cart/addCart/" + this.props.item._id)
+      .then(console.log("AddCart success"))
+      .catch(err => console.log(err));
   }
   render() {
     return (
@@ -36,12 +43,12 @@ class Product extends Component {
                   {/* Button */}
                   {/* onClick={(e) => this.props.handleAddToCart(e, product)} */}
 
-                  <Link
-                    to={"/add-to-cart/" + this.props.item._id}
+                  <button
+                    onClick={this.addtocart}
                     className="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4"
                   >
                     Add to Cart
-                  </Link>
+                  </button>
                 </div>
               </div>
             </div>
@@ -62,5 +69,4 @@ class Product extends Component {
     );
   }
 }
-
 export default Product;

@@ -1,7 +1,7 @@
-module.exports = function Cart(oldCart) {
-  this.items = oldCart.items || {};
-  this.totalQty = oldCart.totalQty || 0;
-  this.totalPrice = oldCart.totalPrice || 0;
+module.exports = function Cart(cart) {
+  this.items = cart.items || {};
+  this.totalQty = cart.totalQty || 0;
+  this.totalPrice = cart.totalPrice || 0;
   this.add = function(item, id) {
     console.log(item);
     console.log(id);

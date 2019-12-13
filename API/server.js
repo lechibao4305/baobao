@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
-const PORT = 4000;
+const PORT = 3000;
 const cors = require("cors");
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
@@ -27,28 +27,31 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 const itemsRoute = require("./Items.route");
 app.use("/items", itemsRoute);
-const cartsRoute = require("./Items.route");
-app.use("/sessions", cartsRoute);
+const cartsRoute = require("./Carts.route");
+app.use("/cart", cartsRoute);
 //Login
 const usersRoute = require("./UserRouter");
 app.use("/users", usersRoute);
-app.listen(PORT, function() {
-  console.log("Server is running on Port:", PORT);
-});
+
 app.use(cookieParser());
 app.use(
   session({
-    secret: "this-is-a-secret-token",
-    resave: false,
+    secret: "secret",
+    resave: true,
     saveUninitialized: false,
     store: new MongoStore({
       mongooseConnection: mongoose.connection
     }),
-    cookie: { maxAge: 1000 * 18 * 60 }
+    cookie: {
+      maxAge: 24 * 60 * 60 * 1000
+    }
   })
 );
 app.use(flash());
 app.use(function(req, res, next) {
   res.locals.session = req.session;
   next();
+});
+app.listen(PORT, function() {
+  console.log("Server is running on Port:", PORT);
 });
