@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Children } from "react";
 import Header from "../../User/Header";
 import Footer from "../../User/Footer";
 import Product from "./Product";
@@ -20,6 +20,7 @@ class ListProduct extends Component {
       .catch(function(error) {
         console.log(error);
       });
+    console.log(this.props.name);
   }
   renderProduct() {
     return this.state.items.map(function(item, index) {
@@ -37,7 +38,9 @@ class ListProduct extends Component {
       );
     });
   }
+
   render() {
+    // var { items } = this.props;
     return (
       <React.Fragment>
         <Header />
@@ -234,7 +237,12 @@ class ListProduct extends Component {
                     Showing 1–12 of 16 results
                   </span>
                 </div>
-                <div className="row">{this.renderProduct()}</div>
+                <div className="row">
+                  {/* {this.renderProduct()} */}
+                  {/* {this.showItems(items)} */}
+                  {/* //Children */}
+                  {this.props.children}
+                </div>
                 {/* Pagination */}
                 <div className="pagination flex-m flex-w p-t-26">
                   <a
@@ -255,6 +263,25 @@ class ListProduct extends Component {
       </React.Fragment>
     );
   }
+  // showItems(items) {
+  //   var result = null;
+  //   if (items.length > 0) {
+  //     result = items.map((item, index) => {
+  //       return (
+  //         <Product
+  //           key={index}
+  //           item={item}
+  //           ten={item.ten}
+  //           hinh={item.hinh}
+  //           hang={item.hang}
+  //           gia={item.gia}
+  //           mota={item.mota}
+  //           trangthai={item.trangthai}
+  //         />
+  //       );
+  //     });
+  //   }
+  //   return result;
+  // }
 }
-
 export default ListProduct;

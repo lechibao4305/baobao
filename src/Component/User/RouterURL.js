@@ -9,6 +9,8 @@ import ListProduct from "../Admin/ManagerProduct/ListProduct";
 import DetailProduct from "../Admin/ManagerProduct/DetailProduct";
 import Cart from "../Admin/ManagerProduct/Cart";
 import Register from "../Login/Register";
+import ListProductContainer from "../../containers/ListProductContainer";
+import CartContainer from "../../containers/CartContainer.js";
 function RouterURL(params) {
   return (
     <Switch>
@@ -19,8 +21,9 @@ function RouterURL(params) {
       <Route path="/Admin" component={Admin} />
       <Route path="/Logout" component={Login} />
       <Route path="/DetailProduct" component={DetailProduct} />
+      <Route path="/Cart" component={CartContainer} />
+      <Route path="/ListProduct" component={ListProductContainer} />
       <Route path="/Cart" component={Cart} />
-      <Route path="/ListProduct" component={ListProduct} />
       {/* <Route path="/addCart/:id" component={ListProduct} /> */}
       {/* <Route path="/cart" component={ShoppingCart} /> */}
       <Route component={Error} />

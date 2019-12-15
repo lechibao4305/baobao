@@ -23,3 +23,23 @@ module.exports = function Cart(cart) {
     return arr;
   };
 };
+// const mongoose = require("mongoose");
+// const Schema = mongoose.Schema;
+
+// let Cart = new Schema(
+//   {
+//     items: [
+//       {
+//         image: String,
+//         nameItem: String,
+//         totalQty: String,
+//         totalPrice: String
+//       }
+//     ]
+//   },
+//   {
+//     collection: "cart"
+//   }
+// );
+
+// module.exports = mongoose.model("cart", Cart);

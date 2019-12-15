@@ -20,4 +20,5 @@ router.get("/addCart/:id", function(req, res, next) {
     res.redirect("/ListProduct");
   });
 });
+
 module.exports = router;

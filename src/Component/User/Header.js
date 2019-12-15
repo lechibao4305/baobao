@@ -80,16 +80,16 @@ class Header extends Component {
                   </a>
                 </Link>
                 <span className="linedivide1" />
-                <div className="header-wrapicon2">
+                <div id="cart-info" className="header-wrapicon2">
                   <img
-                    id="cart-info"
+                    onClick={this.showcart}
                     src="images/icons/icon-header-02.png"
                     className="header-icon1 js-show-header-dropdown"
                     alt="ICON"
                   />
                   <span className="header-icons-noti">1</span>
                   {/* Header cart noti */}
-                  <div className="header-cart header-dropdown">
+                  <div id="cart" className="header-cart header-dropdown">
                     <ul className="header-cart-wrapitem">
                       <li className="header-cart-item">
                         <div className="header-cart-item-img">
