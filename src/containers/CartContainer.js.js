@@ -9,7 +9,21 @@ import CartResult from "../Component/Admin/ManagerProduct/CartResult";
 class CartContainer extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      items: []
+    };
+  }
+  componentDidMount() {
+    axios
+      .get("http://localhost:3000/items/")
+      .then(response => {
+        console.log(response.data);
+        this.setState({ items: response.data });
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+    console.log(this.props.name);
   }
   render() {
     var { cart } = this.props;
@@ -24,6 +38,8 @@ class CartContainer extends Component {
   showCartItem = cart => {
     var result = Message.MSG_EMPTY_CART_;
     if (cart.length > 0) {
+      // result = this.state.cart.map((item, index) => {
+      //du lieu ao
       result = cart.map((item, index) => {
         return <CartItem key={index} item={item} index={index} />;
       });
@@ -58,4 +74,5 @@ const mapStateToProps = state => {
     cart: state.cart
   };
 };
-export default connect(mapStateToProps, null)(CartContainer);
+
+export default connect(mapStateToProps)(CartContainer);

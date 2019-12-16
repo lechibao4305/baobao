@@ -1,7 +1,8 @@
 import * as types from "../constants/ActionType";
+
 export const actAddToCart = (item, quantity) => {
   return {
-    type: types.actAddToCart,
+    type: types.ADD_TO_CART,
     item,
     quantity
   };

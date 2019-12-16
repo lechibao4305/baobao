@@ -6,18 +6,19 @@ class Product extends Component {
   constructor(props) {
     super(props);
     this.state = {};
-    this.addtocart = this.addtocart.bind(this);
+    // this.addtocart = this.addtocart.bind(this);
   }
   onSubmit() {
     axios.post("http://localhost:4000/paypal/pay");
   }
-  addtocart() {
-    axios
-      .get("http://localhost:3000/cart/addCart/" + this.props.item._id)
-      .then(console.log("AddCart success"))
-      .catch(err => console.log(err));
-  }
+  // addtocart() {
+  //   axios
+  //     .get("http://localhost:3000/cart/addCart/" + this.props.item._id)
+  //     .then(console.log("AddCart success"))
+  //     .catch(err => console.log(err));
+  // }
   render() {
+    var { item } = this.props;
     return (
       <React.Fragment>
         <div className="col-sm-12 col-md-6 col-lg-4 p-b-50">
@@ -44,7 +45,7 @@ class Product extends Component {
                   {/* onClick={(e) => this.props.handleAddToCart(e, product)} */}
 
                   <button
-                    onClick={this.addtocart}
+                    onClick={() => this.onAddToCart(item)}
                     className="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4"
                   >
                     Add to Cart
@@ -68,5 +69,8 @@ class Product extends Component {
       </React.Fragment>
     );
   }
+  onAddToCart = item => {
+    this.props.onAddToCart(item);
+  };
 }
 export default Product;

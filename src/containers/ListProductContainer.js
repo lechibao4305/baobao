@@ -3,6 +3,8 @@ import ListProduct from "../Component/Admin/ManagerProduct/ListProduct";
 import axios from "axios";
 import Product from "../Component/Admin/ManagerProduct/Product";
 import { connect } from "react-redux";
+import { actAddToCart } from "../actions/index";
+
 class ListProductContainer extends Component {
   constructor(props) {
     super(props);
@@ -45,8 +47,11 @@ class ListProductContainer extends Component {
   }
   showItems(items) {
     var result = null;
+    var { onAddToCart } = this.props;
     if (items.length > 0) {
-      result = items.map((item, index) => {
+      result = this.state.items.map((item, index) => {
+        //du lieu ao
+        // result = items.map((item, index) => {
         return (
           <Product
             key={index}
@@ -57,6 +62,7 @@ class ListProductContainer extends Component {
             gia={item.gia}
             mota={item.mota}
             trangthai={item.trangthai}
+            onAddToCart={onAddToCart}
           />
         );
       });
@@ -69,4 +75,15 @@ const mapStateToProps = state => {
     items: state.items
   };
 };
-export default connect(mapStateToProps, null)(ListProductContainer);
+const mapDispatchToProps = (dispatch, props) => {
+  return {
+    onAddToCart: item => {
+      dispatch(actAddToCart(item, 1));
+    }
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ListProductContainer);
