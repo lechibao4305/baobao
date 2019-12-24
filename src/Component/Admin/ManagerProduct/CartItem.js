@@ -38,8 +38,8 @@ class CartItem extends Component {
       </tr>
     );
   }
-  showTongTien = (price, quantity) => {
-    return price * quantity;
+  showTongTien = (gia, quantity) => {
+    return gia * quantity;
   };
 }
 

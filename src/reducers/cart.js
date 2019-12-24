@@ -1,9 +1,13 @@
 import * as types from "../constants/ActionType";
+import swal from "sweetalert";
+
 var data = JSON.parse(localStorage.getItem("CART"));
 // data ? data : [];
 var initialState = data ? data : [];
+
 const cart = (state = initialState, action) => {
   var { item, quantity } = action;
+
   var index = -1;
   switch (action.type) {
     case types.ADD_TO_CART:
@@ -18,11 +22,13 @@ const cart = (state = initialState, action) => {
         });
       }
       localStorage.setItem("CART", JSON.stringify(state));
+      swal("Thêm vào giỏ hàng thành công", "", "success")
       return [...state];
     default:
       return [...state];
   }
 };
+
 var findItemInCart = (cart, item) => {
   var index = -1;
   if (cart.length > 0) {

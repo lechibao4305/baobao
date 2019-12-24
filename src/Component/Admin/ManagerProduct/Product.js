@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Util from "./Util";
 import { Link } from "react-router-dom";
 import axios from "axios";
+
 class Product extends Component {
   constructor(props) {
     super(props);
