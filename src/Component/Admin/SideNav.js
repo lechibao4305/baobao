@@ -1,33 +1,21 @@
-import React from 'react';
-import { slide as Menu } from 'react-burger-menu';
-import './SideNav.css'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { slide as Menu } from "react-burger-menu";
+import "./SideNav.css";
+import { Link } from "react-router-dom";
 
 export default props => {
-    return (
-
-        <Menu>
-            <a className="menu-item" href="/">
-                ManagerProduct
+  return (
+    <Menu>
+      <h2>Natsu_Itou</h2>
+      <a className="menu-item" href="/">
+        <i style={{ marginRight: 20 }} class="fas fa-home"></i>
+        ManagerProduct
       </a>
 
-            <a className="menu-item" href="/laravel">
-                Laravel
-      </a>
-
-            <a className="menu-item" href="/angular">
-                Angular
-      </a>
-
-            <a className="menu-item" href="/react">
-                React
-      </a>
-
-            <a className="menu-item" href="/vue">
-                Vue
-      </a>
-
-            <Link onClick={() => (localStorage.removeItem("token"))} to="/login">Logout</Link>
-        </Menu>
-    );
+      <Link onClick={() => localStorage.removeItem("token")} to="/login">
+        <i style={{ marginRight: 20 }} class="fas fa-sign-out-alt"></i>
+        Logout
+      </Link>
+    </Menu>
+  );
 };

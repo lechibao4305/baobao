@@ -90,6 +90,7 @@ class EditProduct extends Component {
   render() {
     return (
       <Container>
+        <h1 style={{ marginTop: 40 }}>Sữa sản phẩm</h1>
         <Form onSubmit={this.onSubmit} ref="myForm" className="myForm">
           <Form.Group controlId="ten">
             <Form.Label>Tên</Form.Label>
@@ -160,7 +161,7 @@ class EditProduct extends Component {
           </Form.Group>
           {/* <Link to="/Admin"> */}
           <Button type="submit" style={{ width: 100 }} variant="success">
-            AddProduct
+            SAVE
           </Button>
           {/* </Link> */}
         </Form>

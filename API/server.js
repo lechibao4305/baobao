@@ -14,14 +14,16 @@ const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 
 mongoose.Promise = global.Promise;
-mongoose.connect(config.DB, { useNewUrlParser: true }).then(
-  () => {
-    console.log("Database is connected");
-  },
-  err => {
-    console.log("Can not connect to the database" + err);
-  }
-);
+mongoose
+  .connect(config.DB, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(
+    () => {
+      console.log("Database is connected");
+    },
+    err => {
+      console.log("Can not connect to the database" + err);
+    }
+  );
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -29,9 +31,9 @@ const itemsRoute = require("./Items.route");
 app.use("/items", itemsRoute);
 const cartsRoute = require("./Carts.route");
 app.use("/cart", cartsRoute);
-//Login
-const usersRoute = require("./UserRouter");
-app.use("/users", usersRoute);
+//Login vs Register
+const Users = require("./Users.route");
+app.use("/users", Users);
 
 app.use(cookieParser());
 app.use(

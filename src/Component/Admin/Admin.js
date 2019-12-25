@@ -21,7 +21,7 @@ class Admin extends Component {
       check
     };
   }
- 
+
   render() {
     if (this.state.check == false) {
       return <Redirect to="/Login" />;

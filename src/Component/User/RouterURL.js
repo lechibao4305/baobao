@@ -23,7 +23,6 @@ function RouterURL(params) {
       <Route path="/DetailProduct" component={DetailProduct} />
       <Route path="/Cart" component={CartContainer} />
       <Route path="/ListProduct" component={ListProductContainer} />
-      <Route path="/Cart" component={Cart} />
       {/* <Route path="/addCart/:id" component={ListProduct} /> */}
       {/* <Route path="/cart" component={ShoppingCart} /> */}
       <Route component={Error} />

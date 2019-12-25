@@ -81,12 +81,14 @@ class Header extends Component {
                 </Link>
                 <span className="linedivide1" />
                 <div id="cart-info" className="header-wrapicon2">
-                  <img
-                    onClick={this.showcart}
-                    src="images/icons/icon-header-02.png"
-                    className="header-icon1 js-show-header-dropdown"
-                    alt="ICON"
-                  />
+                  <Link to="/Cart">
+                    <img
+                      onClick={this.showcart}
+                      src="images/icons/icon-header-02.png"
+                      className="header-icon1 js-show-header-dropdown"
+                      alt="ICON"
+                    />
+                  </Link>
                   <span className="header-icons-noti">1</span>
                   {/* Header cart noti */}
                   <div id="cart" className="header-cart header-dropdown">

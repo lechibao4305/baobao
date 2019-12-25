@@ -1,7 +1,13 @@
 import React, { Component } from "react";
 import { Row, Form, Col, Button, Container } from "react-bootstrap";
 import Item from "./Item";
-import { Link, Redirect } from "react-router-dom";
+import {
+  Link,
+  FormGroup,
+  CustomInput,
+  Label,
+  Redirect
+} from "react-router-dom";
 import axios from "axios";
 class AddProduct extends Component {
   constructor(props) {
@@ -80,6 +86,7 @@ class AddProduct extends Component {
   render() {
     return (
       <Container>
+        <h1 style={{ marginTop: 40 }}>Thêm sản phẩm</h1>
         <Form onSubmit={this.onSubmit} ref="myForm" className="myForm">
           <Form.Group controlId="ten">
             <Form.Label>Tên</Form.Label>
@@ -87,7 +94,7 @@ class AddProduct extends Component {
               onChange={this.onChangeTen}
               value={this.state.ten}
               ref="ten"
-              type="email"
+              type=""
               placeholder="Nhập tên sản phẩm"
             />
           </Form.Group>
@@ -97,7 +104,7 @@ class AddProduct extends Component {
               onChange={this.onChangeHinh}
               value={this.state.hinh}
               ref="hinh"
-              type=""
+              type="file"
               placeholder=""
             />
           </Form.Group>

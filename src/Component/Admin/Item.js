@@ -42,7 +42,7 @@ class Item extends Component {
       <tr style={{ textAlign: "center", width: "auto" }}>
         <td className="text-center">{index}</td>
         <td>
-          <img src="{this.props.item.hinh}" />
+          <img src={this.props.item.hinh} />
         </td>
         <td>{this.props.item.ten}</td>
         <td>{this.props.item.hang}</td>
