@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Button } from "mdbreact";
-
+import Util from "../ManagerProduct/Util";
 class CartItem extends Component {
   render() {
     var a = "/images/img/";
@@ -13,7 +13,7 @@ class CartItem extends Component {
           </div>
         </td>
         <td className="column-2">{item.item.ten}</td>
-        <td className="column-3">{item.item.gia}</td>
+        <td className="column-3">{Util.formatCurrency(item.item.gia)}</td>
         <td className="column-4">
           <div className="flex-w bo5 of-hidden w-size17">
             <button className="btn-num-product-down color1 flex-c-m size7 bg8 eff2">
@@ -31,7 +31,7 @@ class CartItem extends Component {
           </div>
         </td>
         <td className="column-5">
-          {this.showTongTien(item.item.gia, item.quantity)}
+          {Util.formatCurrency(this.showTongTien(item.item.gia, item.quantity))}
         </td>
         <td>
           <Button className="btn-danger">X</Button>

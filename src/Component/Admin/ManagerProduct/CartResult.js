@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import Util from "../ManagerProduct/Util";
 export default class CartResult extends Component {
   render() {
     var { cart } = this.props;
@@ -21,7 +21,9 @@ export default class CartResult extends Component {
               style={{ fontSize: 20 }}
               className="m-text21 w-size20 w-full-sm"
             >
-              <strong>${this.showToltalAmount(cart)}</strong>
+              <strong>
+                {Util.formatCurrency(this.showToltalAmount(cart))}
+              </strong>
             </span>
           </td>
         </tr>
