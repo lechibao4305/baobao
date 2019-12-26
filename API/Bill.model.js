@@ -3,22 +3,25 @@ const Schema = mongoose.Schema;
 
 let Bill = new Schema(
   {
-    ten: {
+    tenkhach: {
       type: String
     },
-    hinh: {
-      type: String
-    },
-    mota: {
+    tensp: {
       type: String
     },
     gia: {
       type: Number
     },
+    quantity: {
+      type: Number
+    },
     hang: {
       type: String
     },
-    trangthai: {
+    ngay: {
+      type: Date.now()
+    },
+    tongtien: {
       type: Number
     }
   },

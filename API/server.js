@@ -31,6 +31,8 @@ const itemsRoute = require("./Items.route");
 app.use("/items", itemsRoute);
 const cartsRoute = require("./Carts.route");
 app.use("/cart", cartsRoute);
+const billsRoute = require("./Bills.route");
+app.user("/bills", billsRoute);
 //Login vs Register
 const Users = require("./Users.route");
 app.use("/users", Users);
