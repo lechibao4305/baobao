@@ -10,7 +10,7 @@ import DetailProduct from "../Admin/ManagerProduct/DetailProduct";
 import Cart from "../Admin/ManagerProduct/Cart";
 import Register from "../Login/Register";
 import ListProductContainer from "../../containers/ListProductContainer";
-import CartContainer from "../../containers/CartContainer.js";
+import CartContainer from "../../containers/CartContainer";
 function RouterURL(params) {
   return (
     <Switch>

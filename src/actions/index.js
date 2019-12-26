@@ -1,5 +1,4 @@
 import * as types from "../constants/ActionType";
-import { Types } from "mongoose";
 
 export const actAddToCart = (item, quantity) => {
   return {
