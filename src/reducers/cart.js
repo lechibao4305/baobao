@@ -22,7 +22,7 @@ const cart = (state = initialState, action) => {
         });
       }
       localStorage.setItem("CART", JSON.stringify(state));
-      swal("Thêm vào giỏ hàng thành công", "", "success")
+      swal("Thêm vào giỏ hàng thành công", "", "success");
       return [...state];
     default:
       return [...state];

@@ -2,31 +2,28 @@ import React, { Component } from "react";
 import Util from "./Util";
 import { Link } from "react-router-dom";
 import axios from "axios";
-
 class Product extends Component {
   constructor(props) {
     super(props);
     this.state = {};
-    // this.addtocart = this.addtocart.bind(this);
   }
   onSubmit() {
     axios.post("http://localhost:4000/paypal/pay");
   }
-  // addtocart() {
-  //   axios
-  //     .get("http://localhost:3000/cart/addCart/" + this.props.item._id)
-  //     .then(console.log("AddCart success"))
-  //     .catch(err => console.log(err));
-  // }
   render() {
     var { item } = this.props;
+    var a = "/images/img/";
     return (
       <React.Fragment>
         <div className="col-sm-12 col-md-6 col-lg-4 p-b-50">
           {/* Block2 */}
           <div className="block2">
             <div className="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
-              <img src="images/dh-1.jpg" alt="IMG-PRODUCT" />
+              <img
+                // src="images/img/citizen.png"
+                src={a + this.props.item.hinh}
+                alt="IMG-PRODUCT"
+              />
               <div className="block2-overlay trans-0-4">
                 <a
                   href="#"

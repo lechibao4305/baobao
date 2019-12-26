@@ -40,9 +40,9 @@ class Header extends Component {
             </div>
             <div className="wrap_header">
               {/* Logo */}
-              <a href="index.html" className="logo">
+              <Link to="/" className="logo">
                 <img src="images/icons/logo.png" alt="IMG-LOGO" />
-              </a>
+              </Link>
               {/* Menu */}
               <div className="wrap_menu">
                 <nav className="menu">
@@ -69,7 +69,7 @@ class Header extends Component {
               </div>
               {/* Header Icon */}
               <div className="header-icons">
-                <Link to="/Logout">
+                <Link to="/Login">
                   {" "}
                   <a href="#" className="header-wrapicon1 dis-block">
                     <img
@@ -83,13 +83,12 @@ class Header extends Component {
                 <div id="cart-info" className="header-wrapicon2">
                   <Link to="/Cart">
                     <img
-                      onClick={this.showcart}
                       src="images/icons/icon-header-02.png"
                       className="header-icon1 js-show-header-dropdown"
                       alt="ICON"
                     />
                   </Link>
-                  <span className="header-icons-noti">1</span>
+                  <span className="header-icons-noti">0</span>
                   {/* Header cart noti */}
                   <div id="cart" className="header-cart header-dropdown">
                     <ul className="header-cart-wrapitem">

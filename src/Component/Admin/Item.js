@@ -13,7 +13,6 @@ class Item extends Component {
       .then(console.log("Deleted"))
       .catch(err => console.log(err));
   }
-
   // EditProduct() {
 
   // }
@@ -25,6 +24,7 @@ class Item extends Component {
   // }
 
   render() {
+    var a = "/images/img/";
     let { item, index } = this.props;
     let classNameLabel = "";
     let nameLabel = "";
@@ -38,11 +38,15 @@ class Item extends Component {
         nameLabel = "Hết Hàng";
         break;
     }
+    console.log();
     return (
       <tr style={{ textAlign: "center", width: "auto" }}>
         <td className="text-center">{index}</td>
         <td>
-          <img src={this.props.item.hinh} />
+          <img
+            style={{ width: 50, height: 50 }}
+            src={a + this.props.item.hinh}
+          />
         </td>
         <td>{this.props.item.ten}</td>
         <td>{this.props.item.hang}</td>

@@ -55,8 +55,12 @@ class AddProduct extends Component {
     });
   }
   onChangeHinh(e) {
+    // this.setState({
+    //   hinh: e.target.value
+    // });
+    console.log(e.target.files[0].name);
     this.setState({
-      hinh: e.target.value
+      hinh: e.target.files[0].name
     });
   }
   onSubmit(e) {
@@ -102,7 +106,6 @@ class AddProduct extends Component {
             <Form.Label>Hình</Form.Label>
             <Form.Control
               onChange={this.onChangeHinh}
-              value={this.state.hinh}
               ref="hinh"
               type="file"
               placeholder=""
@@ -116,11 +119,11 @@ class AddProduct extends Component {
               ref="hang"
               as="select"
             >
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
+              <option>Citizen</option>
+              <option>Rolex</option>
+              <option>Seiko</option>
+              <option>D&G</option>
+              <option>CalvinKlein</option>
             </Form.Control>
           </Form.Group>
           <Form.Group controlId="gia">
