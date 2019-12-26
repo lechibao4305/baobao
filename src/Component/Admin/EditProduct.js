@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Row, Form, Col, Button, Container } from "react-bootstrap";
+import swal from "sweetalert";
 class EditProduct extends Component {
   constructor(props) {
     super(props);
@@ -64,7 +65,7 @@ class EditProduct extends Component {
   }
   onChangeHinh(e) {
     this.setState({
-      hinh: e.target.value
+      hinh: e.target.files[0].name
     });
   }
   onSubmit(e) {
@@ -84,8 +85,9 @@ class EditProduct extends Component {
         obj
       )
       .then(res => console.log(res.data));
-
-    this.props.history.push("/index");
+    swal("Sữa thành công", "", "success");
+    this.props.history.push("/admin");
+    console.log(obj);
   }
   render() {
     return (
@@ -98,7 +100,7 @@ class EditProduct extends Component {
               onChange={this.onChangeTen}
               value={this.state.ten}
               ref="ten"
-              type="email"
+              type=""
               placeholder="Nhập tên sản phẩm"
             />
           </Form.Group>
@@ -106,9 +108,8 @@ class EditProduct extends Component {
             <Form.Label>Hình</Form.Label>
             <Form.Control
               onChange={this.onChangeHinh}
-              value={this.state.hinh}
               ref="hinh"
-              type=""
+              type="file"
               placeholder=""
             />
           </Form.Group>
@@ -120,11 +121,11 @@ class EditProduct extends Component {
               ref="hang"
               as="select"
             >
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
+              <option>Citizen</option>
+              <option>Rolex</option>
+              <option>Seiko</option>
+              <option>D&G</option>
+              <option>CalvinKlein</option>
             </Form.Control>
           </Form.Group>
           <Form.Group controlId="gia">
@@ -144,7 +145,7 @@ class EditProduct extends Component {
               value={this.state.mota}
               ref="mota"
               type=""
-              placeholder="Nhập giá"
+              placeholder="Nhập mô tả"
             />
           </Form.Group>
           <Form.Group controlId="trangthai">

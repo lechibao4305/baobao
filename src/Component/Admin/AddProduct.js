@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Row, Form, Col, Button, Container } from "react-bootstrap";
 import Item from "./Item";
+import swal from "sweetalert";
 import {
   Link,
   FormGroup,
@@ -84,6 +85,7 @@ class AddProduct extends Component {
       gia: 0,
       hang: ""
     });
+    swal("Thêm thành công", "", "success");
     this.props.history.push("/admin");
     console.log(item);
   }
@@ -143,7 +145,7 @@ class AddProduct extends Component {
               value={this.state.mota}
               ref="mota"
               type=""
-              placeholder="Nhập giá"
+              placeholder="Nhập mô tả"
             />
           </Form.Group>
           <Form.Group controlId="trangthai">

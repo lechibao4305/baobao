@@ -4,7 +4,7 @@ class Title extends Component {
   render() {
     return (
       <div className="page-header text-center" style={{ marginBottom: 50 }}>
-        <h1>Quản lí sản phẩm</h1>
+        <h1 style={{ marginTop: 40 }}>Quản lí sản phẩm</h1>
       </div>
     );
   }

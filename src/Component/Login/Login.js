@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./Login.css";
 import { Redirect } from "react-router-dom";
 import Axios from "axios";
-
+import swal from "sweetalert";
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -33,6 +33,13 @@ class Login extends Component {
       localStorage.setItem("token", "asdasda");
       this.setState({
         check: true
+      });
+    } else {
+      swal({
+        icon: "error",
+        title: "Oops...",
+        text: "Sai tài khoản hoặc mật khẩu",
+        footer: "<a href>Why do I have this issue?</a>"
       });
     }
   }

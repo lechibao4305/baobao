@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "./Register.css";
+import swal from "sweetalert";
 const emailRegex = RegExp(
   /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
 );
@@ -42,6 +43,22 @@ class Register extends Component {
     e.preventDefault();
 
     if (formValid(this.state)) {
+      const obj = {
+        firstname: this.state.firstname,
+        email: this.state.email,
+        password: this.state.password,
+        lastname: this.state.lastname
+      };
+      axios
+        .post("http://localhost:3000/users/register", obj)
+        .then(res => console.log(res.data));
+      swal("Đăng kí thành công", "", "success");
+      this.setState({
+        firstname: "",
+        email: "",
+        password: "",
+        lastname: ""
+      });
       console.log(`
         --SUBMITTING--
         First Name: ${this.state.firstName}
@@ -50,7 +67,12 @@ class Register extends Component {
         Password: ${this.state.password}
       `);
     } else {
-      console.error("FORM INVALID - DISPLAY ERROR MESSAGE");
+      swal({
+        icon: "error",
+        title: "Oops...",
+        text: "Something went wrong!",
+        footer: "<a href>Why do I have this issue?</a>"
+      });
     }
   };
   handleChange = e => {
@@ -61,7 +83,7 @@ class Register extends Component {
     switch (name) {
       case "firstName":
         formErrors.firstName =
-          value.length < 3 ? "minimum 3 characaters required" : "";
+          value.length < 2 ? "minimum 2 characaters required" : "";
         break;
       case "lastName":
         formErrors.lastName =

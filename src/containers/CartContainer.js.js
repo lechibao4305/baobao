@@ -6,6 +6,7 @@ import PropTypes from "prop-types";
 import * as Message from "../constants/Message";
 import CartItem from "../Component/Admin/ManagerProduct/CartItem";
 import CartResult from "../Component/Admin/ManagerProduct/CartResult";
+import { actDeleteItemInCart, actUpdateItemInCart } from "../actions/index";
 class CartContainer extends Component {
   constructor(props) {
     super(props);
@@ -37,11 +38,20 @@ class CartContainer extends Component {
   }
   showCartItem = cart => {
     var result = Message.MSG_EMPTY_CART_;
+    var { deleteItemInCart, updateItemInCart } = this.props;
     if (cart.length > 0) {
       // result = this.state.cart.map((item, index) => {
       //du lieu ao
       result = cart.map((item, index) => {
-        return <CartItem key={index} item={item} index={index} />;
+        return (
+          <CartItem
+            key={index}
+            item={item}
+            index={index}
+            deleteItemInCart={deleteItemInCart}
+            updateItemInCart={updateItemInCart}
+          />
+        );
       });
     }
     return result;
@@ -74,5 +84,15 @@ const mapStateToProps = state => {
     cart: state.cart
   };
 };
+const mapDispatchToProps = (dispatch, props) => {
+  return {
+    deleteItemInCart: item => {
+      dispatch(actDeleteItemInCart(item));
+    },
+    updateItemInCart: (item, quantity) => {
+      dispatch(actUpdateItemInCart(item, quantity));
+    }
+  };
+};
 
-export default connect(mapStateToProps)(CartContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(CartContainer);

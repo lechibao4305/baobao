@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import swal from "sweetalert";
 import Util from "./ManagerProduct/Util";
 class Item extends Component {
   constructor(props) {
@@ -8,11 +9,28 @@ class Item extends Component {
     this.delete = this.delete.bind(this);
   }
   componentDidMount() {}
+  sweetAlert() {}
   delete() {
-    axios
-      .get("http://localhost:3000/items/delete/" + this.props.item._id)
-      .then(console.log("Deleted"))
-      .catch(err => console.log(err));
+    swal({
+      title: "Bạn có chắc muốn xóa sản phẩm",
+      text: "Nếu xóa sẽ không thể khôi phục",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true
+    }).then(willDelete => {
+      if (willDelete) {
+        //Xoa san pham
+        axios
+          .get("http://localhost:3000/items/delete/" + this.props.item._id)
+          .then(console.log("Deleted"))
+          .catch(err => console.log(err));
+        swal("Xóa sản phẩm thành công", {
+          icon: "success"
+        });
+      } else {
+        swal("Cancel success");
+      }
+    });
   }
   // EditProduct() {
 

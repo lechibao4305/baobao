@@ -17,7 +17,7 @@ class Cart extends Component {
         <Header />
         <section
           className="bg-title-page p-t-40 p-b-50 flex-col-c-m"
-          style={{ backgroundImage: "url(images/heading-pages-01.jpg)" }}
+          style={{ backgroundImage: "url(images/img/banner2.jpg)" }}
         >
           <h2 className="l-text2 t-center">Cart</h2>
         </section>

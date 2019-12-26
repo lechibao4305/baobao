@@ -1,31 +1,18 @@
 import React, { Component } from "react";
 // import Items from '../Admin/Items'
+import Search from "./Search";
+import Sort from "./Sort";
 import Item from "./Item";
 import axios from "axios";
+
 class ListItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // items: Items,
-      // index: "",
       items: []
     };
   }
-  // deleteProduct = (id) => {
-  //     var arrProduct = this.state.items;
-  //     arrProduct.splice(id, 1)
-  //     this.setState({ items: arrProduct })
-  //     console.log("delete success")
-  // }
-  // editProduct = (id, name) => {
-  //     console.log("edit success")
-  // }
-  // addProduct = (id, name, level) => {
-  //     var arrProduct = this.state.items
-  //     arrProduct.push(id, name, level)
-  //     this.setState({ items: arrProduct })
-  //     console.log("add success");
-  // }
+
   componentDidMount() {
     axios
       .get("http://localhost:3000/items/")
@@ -42,6 +29,7 @@ class ListItem extends Component {
       return (
         <Item
           key={index}
+          index={index + 1}
           item={item}
           ten={item.ten}
           hinh={item.hinh}
@@ -53,11 +41,16 @@ class ListItem extends Component {
       );
     });
   }
+
   render() {
     return (
       <div className="panel panel-success">
-        <div className="panel-heading">Product</div>
-        <table ref="refresh" className="table table-hover">
+        <div className="panel-heading"></div>
+        <table
+          style={{ marginTop: 25 }}
+          ref="refresh"
+          className="table table-hover"
+        >
           <thead>
             <tr>
               <th className="text-center">ID</th>

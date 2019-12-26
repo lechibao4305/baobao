@@ -4,20 +4,32 @@ var userRoutes = express.Router();
 var User = require("./User.model");
 
 userRoutes.route("/register").post(function(req, res) {
-  let user = new Item(req.body);
+  let user = new User(req.body);
   user
     .save()
-    .then(user => {
-      res.status(200).json({ user: "user register successfully" });
+    .then(users => {
+      res.status(200).json({ users: "user in added successfully" });
     })
     .catch(err => {
       res.status(400).send("unable to save to database");
     });
 });
-userRoutes.route("/login").get(function(req, res) {
-  let id = req.params.id;
-  User.findById(id, function(err, business) {
-    res.json(business);
-  });
+userRoutes.post("/login", async (req, res, next) => {
+  var email = req.body.email;
+  var pass = req.body.password;
+  if (email == null || pass == null) {
+    res.send("vui long nhap email ,pass");
+    return;
+  }
+  const acc = await User.findOne({ email: email });
+  if (acc != null) {
+    if (acc.password == pass) {
+      res.json({ stt: "Loging", tk: acc });
+    } else {
+      res.send("Password wrong");
+    }
+  } else {
+    res.send("account not found");
+  }
 });
 module.exports = userRoutes;
