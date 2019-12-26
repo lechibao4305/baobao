@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import Util from "./ManagerProduct/Util";
 class Item extends Component {
   constructor(props) {
     super(props);
     this.delete = this.delete.bind(this);
   }
-
+  componentDidMount() {}
   delete() {
     axios
       .get("http://localhost:3000/items/delete/" + this.props.item._id)
@@ -38,7 +39,6 @@ class Item extends Component {
         nameLabel = "Hết Hàng";
         break;
     }
-    console.log();
     return (
       <tr style={{ textAlign: "center", width: "auto" }}>
         <td className="text-center">{index}</td>
@@ -50,7 +50,7 @@ class Item extends Component {
         </td>
         <td>{this.props.item.ten}</td>
         <td>{this.props.item.hang}</td>
-        <td>{this.props.item.gia}</td>
+        <td>{Util.formatCurrency(this.props.item.gia)}</td>
         <td>{this.props.item.mota}</td>
         <td className="text-center">
           <span className={classNameLabel}>{nameLabel}</span>

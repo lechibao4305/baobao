@@ -3,12 +3,13 @@ import { Button } from "mdbreact";
 
 class CartItem extends Component {
   render() {
+    var a = "/images/img/";
     var { item } = this.props;
     return (
       <tr className="table-row">
         <td className="column-1">
           <div className="cart-img-product b-rad-4 o-f-hidden">
-            <img src={item.item.hinh} alt="IMG-PRODUCT" />
+            <img src={a + item.item.hinh} alt="IMG-PRODUCT" />
           </div>
         </td>
         <td className="column-2">{item.item.ten}</td>

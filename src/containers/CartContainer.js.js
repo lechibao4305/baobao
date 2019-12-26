@@ -20,7 +20,7 @@ class CartContainer extends Component {
         console.log(response.data);
         this.setState({ items: response.data });
       })
-      .catch(function (error) {
+      .catch(function(error) {
         console.log(error);
       });
     console.log(this.props.name);

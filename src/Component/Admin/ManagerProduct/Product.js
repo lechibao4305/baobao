@@ -20,6 +20,7 @@ class Product extends Component {
           <div className="block2">
             <div className="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
               <img
+                style={{ width: 254.98, height: 262 }}
                 // src="images/img/citizen.png"
                 src={a + this.props.item.hinh}
                 alt="IMG-PRODUCT"

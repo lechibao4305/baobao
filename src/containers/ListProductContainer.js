@@ -16,13 +16,12 @@ class ListProductContainer extends Component {
     axios
       .get("http://localhost:3000/items/")
       .then(response => {
-        console.log(response.data);
+        // console.log(response.data);
         this.setState({ items: response.data });
       })
       .catch(function(error) {
         console.log(error);
       });
-    console.log(this.props.name);
   }
   renderProduct() {
     return this.state.items.map(function(item, index) {
